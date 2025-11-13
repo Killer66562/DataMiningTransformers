@@ -19,9 +19,9 @@ set_seed(seed)
 train_batch_size=16
 eval_batch_size=16
 gradient_accumulation_steps=4
-train_epochs=5
+train_epochs=10
 
-trial_counts=4
+trial_counts=10
 
 project_name="ag-news"
 study_name="ag_news_transformers_study"
@@ -163,7 +163,10 @@ def main():
     predicted_logits = predictions_output.predictions
     actual_labels = predictions_output.label_ids
     predicted_labels = np.argmax(predicted_logits, axis=1)
+    acc_dict = accuracy.compute(predictions=predicted_labels, references=actual_labels)
+    acc = acc_dict['accuracy']
     cm = confusion_matrix(actual_labels, predicted_labels)
+    print(f"Accuracy: {acc}")
 
     label_names = ["World", "Sports", "Business", "Sci/Tech"]
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=label_names)
