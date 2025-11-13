@@ -21,7 +21,7 @@ eval_batch_size=16
 gradient_accumulation_steps=4
 train_epochs=5
 
-trial_counts=5
+trial_counts=4
 
 project_name="ag-news"
 study_name="ag_news_transformers_study"

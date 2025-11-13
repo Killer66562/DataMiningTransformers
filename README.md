@@ -6,6 +6,7 @@
 
 1. 複製本專案並進入
     ```bash
+    git clone https://github.com/Killer66562/DataMiningTransformers.git
     cd DataMiningTransformers
     ```
 
