@@ -90,7 +90,7 @@ def main():
         per_device_train_batch_size=train_batch_size, 
         per_device_eval_batch_size=eval_batch_size,  
         gradient_accumulation_steps=gradient_accumulation_steps, 
-        num_train_epochs=1, 
+        num_train_epochs=train_epochs, 
         eval_strategy="epoch", 
         save_strategy="epoch", 
         load_best_model_at_end=True, 
@@ -124,6 +124,7 @@ def main():
         load_if_exists=True
     )
     best_hparams = best_run.hyperparameters
+    print(best_hparams)
 
     # Define training args for actual training
     training_args = TrainingArguments(
